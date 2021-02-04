@@ -1,7 +1,8 @@
 import * as types from './actionTypes'
 
-export const changeAuthStatus = () => ({
+export const changeAuthStatus = (bool) => ({
   type: types.CHANGE_AUTH_STATUS,
+  payload: bool,
 })
 
 export const addWorkout = (workout) => ({

@@ -1,15 +1,14 @@
 import * as types from '../actions/actionTypes'
 
 const initialState = {
-  isAuthenticated: true
+  isAuthenticated: false
 }
 
 const authStateReducer = (state = initialState, action) => {
   switch(action.type) {
     case types.CHANGE_AUTH_STATUS: {
       return {
-        ...state, 
-        isAuthenticated: !state.isAuthenticated,
+        isAuthenticated: action.payload
       }
     }
     default: 

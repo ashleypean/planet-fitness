@@ -2,6 +2,7 @@ import * as types from '../actions/actionTypes'
 
 const initialState = [{
   name: 'Treadmill', 
+  user_id: '',
   id: 1, 
   type: 'cardio', 
   time: 100,

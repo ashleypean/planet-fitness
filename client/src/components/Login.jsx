@@ -1,37 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {Button, TextField, Typography} from '@material-ui/core'
+import * as actions from '../actions/actions'
 
-const Login = () => {
+const Login = (props) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleChange = (e) => {
+    const inputField = e.target
+    
+    if(inputField.id === 'email') setEmail(inputField.value)
+    else if(inputField.id === 'password') setPassword(inputField.value)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const email = document.querySelector('#email').value
-    const password = document.querySelector('#password').value
-
-    fetch("http://localhost:3001/login", {
+    fetch("/login", {
       method: 'POST', 
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({email, password})
-    })
+    }).then(res => res.json())
+    .then(res => res.loggedIn? props.changeAuthStatus(true): props.changeAuthStatus(false))
   }
 
   return (
     <div style={divStyles}>
       <Typography variant="h4">Planet Fitness Tracker App</Typography>
       <form style={formStyles} onSubmit={handleSubmit}>
-        <TextField id="email" type="email" label="Email" required />
-        <TextField  id="password" type="password" label="Password" required />
+        <TextField id="email" type="email" label="Email" required onChange={handleChange}/>
+        <TextField  id="password" type="password" label="Password" required onChange={handleChange}/>
         <Button variant="contained" type="submit" color="primary">Log In</Button>
       </form>
     </div>
   )
 }
 
-export default Login
+const mapDispatchToProps = dispatch => ({
+  changeAuthStatus: i => dispatch(actions.changeAuthStatus(i))
+})
+
+export default connect(null, mapDispatchToProps)(Login)
 
 const divStyles = {
   display: 'flex', 
