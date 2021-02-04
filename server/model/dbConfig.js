@@ -11,10 +11,6 @@ const client = new Client({
 const connect = () => {
   client.connect()
   .then(() => console.log('connected to database'))
-  .then(() => client.query('SELECT * from users'))
-  .then(res => console.table(res.rows))
-  .then(() => client.query('SELECT * from workouts'))
-  .then(res => console.table(res.rows))
   .catch(e => console.error(e))
 }
 
