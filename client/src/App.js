@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Home from './components/Home'
-import Login from './components/Login'
+import Auth from './components/Auth/Auth'
+import Login from './components/Login/Login'
 import Signup from './components/Signup'
 import AddWorkout from './components/AddWorkout'
 import ViewWorkouts from './components/ViewWorkouts'
 import NotFound from './components/NotFound'
-import EditProfile from './components/EditProfile'
+import ViewProfile from './components/ViewProfile/ViewProfile'
+import EditProfile from './components/EditProfile/EditProfile'
 import './App.css'
 
 
@@ -24,7 +26,7 @@ const App = props => {
 //Authorized routes for unauthenticated users
 const LoginRoutes = (
   <Switch>
-    <Route exact path="/" component={Signup} />
+    <Route exact path="/" component={Auth} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/signup" component={Signup} />
     <Route component={NotFound} />
@@ -36,9 +38,10 @@ const MainAppRoutes = (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/login" component={Login} />
+    <Route exact path="/profile" component={ViewProfile} />
     <Route exact path="/edit-profile" component={EditProfile} />
     <Route exact path="/signup" component={Signup} />
-    <Route exact path="/view-workouts" component={ViewWorkouts} />
+    <Route exact path="/workouts" component={ViewWorkouts} />
     <Route exact path="/add-workout" component={AddWorkout} />
     <Route component={NotFound} />
   </Switch>

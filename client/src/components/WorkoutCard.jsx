@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Home = (props) => {
+
+export default function WorkoutCard(props) {
+
   return (
     <div></div>
   )
 }
-
-export default Home

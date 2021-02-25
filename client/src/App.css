@@ -1,6 +1,9 @@
 html, body, div#root{
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 div.App {
@@ -9,4 +12,5 @@ div.App {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }

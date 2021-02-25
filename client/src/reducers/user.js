@@ -1,10 +1,10 @@
 import * as types from '../actions/actionTypes'
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
-  user_id: '',
+  name: 'Ashley Pean',
+  email: 'pean.ashley@gmail.com',
+  password: 'password',
+  user_id: '1233',
 }
 
 const userReducer = (state = initialState, action) => {
