@@ -49,6 +49,21 @@ export const Text = styled.p`
   margin: 0;
 `
 
-export const Quote = styled.h4`
+export const Quote = styled.blockquote`
+  font-weight: 400;
+  font-size: .8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+`
 
+export const Citation = styled.cite`
+
+`
+
+export const CardContainer = styled.div`
+  height: 55%;
+  display: flex;
+  flex-basis: 50%;
+  flex-flow: row wrap;
+  gap: 1rem;
 `
