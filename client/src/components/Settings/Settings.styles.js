@@ -3,11 +3,17 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: #424242;
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   color: lightgray;
   font-family: Lato;
   padding: 0 1rem;
   box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  visibility: ${props => props.visible? 'visible' : 'hidden'};
+  z-index: ${props => props.visible? 2 : -1};
 `
 
 export const Header = styled.div`

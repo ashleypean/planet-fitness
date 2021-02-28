@@ -1,5 +1,6 @@
 const client = require('./model/dbConfig')
 const bcrypt = require('bcrypt')
+const query = require('./model/SQLCommands')
 const localStrategy = require('passport-local').Strategy
 
 module.exports = (passport) => {
@@ -13,22 +14,29 @@ module.exports = (passport) => {
       const SQLCommand = `SELECT * FROM users WHERE email=$1`
       const data = [username]
 
-      //Find
+      //Find user in database
       client.query(SQLCommand, data, (err, results) => {
-        if(err) return done(err)
-        if(results.rows.length <= 0) return done(null, false)
+        if(err) {
+          console.log('error with query')
+          return done(err)
+        }
+        if(results.rows.length <= 0) {
+          console.log('different error')
+          return done(null, false)
+        }
 
         else if(results.rowCount > 0) {
+          console.log('user found in database')
           const user = results.rows[0]
 
           bcrypt.compare(password, user.password, (err, res) => {
-            if(err) throw err
+            if(err) done(err)
             if(res) {
+              console.log('there is a response')
               done(null, {
                 name: user.name, 
                 user_id: user.user_id, 
-                email: user.email, 
-                password: user.password 
+                email: user.email
               })
             }else {
               done(null, false, {message: 'Incorrect password'})
@@ -46,10 +54,14 @@ module.exports = (passport) => {
 
   //Unravels cookie and returns user info from it 
   passport.deserializeUser((id, done) => {
-    const SQLCommand = `SELECT name, email, id FROM users WHERE id = $1`
-    client.query(SQLCommand, id, (err, results) => {
-      if(err) return done(err)
-      else done(null, results.rows[0])
+    const SQLCommand = `SELECT name, email, user_id FROM users WHERE user_id = $1`
+    client.query(SQLCommand, [id], (err, results) => {
+      if(err) 
+        return done(err)
+      else if(!results.rowCount) 
+        return done(err)
+      else 
+        done(null, results)
     })
   })
 

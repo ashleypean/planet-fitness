@@ -12,12 +12,16 @@ const PORT = 3001
 //MIDDLEWARE
 app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
 app.use(session({
   secret: 'secretcode', 
   resave: true, 
-  saveUninitialized: true
+  saveUninitialized: true, 
+  cookie: {
+    maxAge: 3600000 * 30
+  }
 }))
-app.use(cookieParser("secretcode"))
+
 app.use(passport.initialize())
 app.use(passport.session())
 require('./passportConfig-local')(passport)

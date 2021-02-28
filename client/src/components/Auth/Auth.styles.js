@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const AuthContainer = styled.div`
   background: #242323;
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   font-family: Arial;
   color: white;

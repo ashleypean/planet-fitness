@@ -1,16 +1,15 @@
 import React from 'react'
-import menu from '../../images/icons/menu.svg'
-import settings from '../../images/icons/settings.svg'
+import Header from '../Header/Header'
 import profilePic from '../../images/me.jpeg'
-import { Container, Header, UserDiv, UserDivImage,  DivText, Username, Text, Quote, Citation, CardContainer } from './ViewProfile.styles'
+import { Container, UserDiv, UserDivImage,  DivText, Username, Text, Quote, Citation, CardContainer } from './ViewProfile.styles'
 import ProfileCard from './ProfileCard/ProfileCard'
 import Trophy from '../../images/icons/trophy.svg'
 import Fire from '../../images/icons/fire.svg'
 import Rocket from '../../images/icons/rocket.svg'
 import Gear from '../../images/icons/gear.svg'
+import Menu from '../Menu/Menu'
 
 export const ViewProfile = (props) => {
-
   const cards = [
     {title: 'Goals', text: '67% Achieved', icon: Trophy},
     {title: 'Workout List', text: 'Get Started', icon: Rocket}, 
@@ -18,13 +17,11 @@ export const ViewProfile = (props) => {
     {title: 'Settings', text: 'Change Settings', icon: Gear} 
   ]
 
+
   return (
     <Container>
-      <Header>
-        <img src={menu} alt="Menu"/>
-        <p>Edit Profile</p>
-        <img src={settings} alt="Settings" />        
-      </Header>
+      <Menu visible={props.menuVisibility} />
+      <Header title={'Profile'}/>
 
       <UserDiv>
         <UserDivImage src={profilePic} alt="User profile "/>
@@ -50,8 +47,6 @@ export const ViewProfile = (props) => {
     </Container>
   )
 }
-
-
 
 
 export default ViewProfile

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-  font-family: Arial;
-  background: #999999;
+  font-family: Lato;
+  background: #424242;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,10 +40,10 @@ export const LoginRegisterSwitch = styled.div`
 export const Switch = styled.button`
   width: 50%;
   height: 3rem;
-  color: white;
+  color: ${props => props.active? '#FCD900': 'gray'};
   background: none;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: ${props => props.active? '1px solid #FCD900': '1px solid white' };
   font-size: 1.2rem;
   outline: none;
 `
@@ -52,6 +53,8 @@ export const InputField = styled.input`
   padding-bottom: .8rem;
   background: none;
   height: 25%;
+  outline: none;
+  color: white;
   
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;

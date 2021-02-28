@@ -1,6 +1,0 @@
-{
-  "scripts": {
-    "client": "cd client/ && yarn run start", 
-    "server": "cd server && nodemon server"
-  }
-}

@@ -1,21 +1,21 @@
 import React from 'react'
-import menu from '../../images/icons/menu.svg'
-import settings from '../../images/icons/settings.svg'
-import { Container, Header, FormContainer, Input, RegisterButton } from './EditProfile.styles'
+import { connect } from 'react-redux'
+import { Container, FormContainer, Input, RegisterButton } from './EditProfile.styles'
+import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
 
-const EditProfile = () => {
+
+const EditProfile = (props) => {
   return (
     <Container>
-      <Header>
-        <img src={menu} alt="Menu"/>
-        <p>Edit Profile</p>
-        <img src={settings} alt="Settings" />
-      </Header>
+      <Menu visible={props.menuVisibility} />
+
+      <Header title={'Edit Profile'} />
 
       <FormContainer>
         <Input placeholder={"Username"} />
-        <Input placeholder={"Email"} />
-        <Input placeholder={"Phone"} />
+        <Input type="email" placeholder={"Email"} />
+        <Input type="phone" placeholder={"Phone"} />
         <Input placeholder={"Birthday"} />
         <Input placeholder={"Gender"} />
         <RegisterButton>Save Changes</RegisterButton>
@@ -24,4 +24,13 @@ const EditProfile = () => {
   )
 }
 
-export default EditProfile
+const mapStateToProps = (state) => ({
+  
+})
+
+const mapDispatchToProps = {
+  
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile)
+

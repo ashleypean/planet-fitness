@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, Header, DayContainer, Day, WorkoutContainer, CheckBox, WorkoutDetails, ViewButton, WorkoutTime, WorkoutName } from './WorkoutSchedule.styles'
-import menu from '../../images/icons/menu.svg'
-import settingsIcon from '../../images/icons/settings.svg'
+import { Container, DayContainer, Day, WorkoutContainer, CheckBox, WorkoutDetails, ViewButton, WorkoutTime, WorkoutName } from './WorkoutSchedule.styles'
+import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
 
 export const WorkoutSchedule = (props) => {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -10,11 +10,9 @@ export const WorkoutSchedule = (props) => {
 
   return (
     <Container>
-      <Header>
-        <img src={menu} alt="Menu"/>
-        <p>Schedule</p>
-        <img src={settingsIcon} alt="Settings" /> 
-      </Header>
+      <Menu visible={props.menuVisibility} />
+
+      <Header title={'Schedule'}/>
 
       <DayContainer>
         {days.map(day => <Day>{day}</Day>)}

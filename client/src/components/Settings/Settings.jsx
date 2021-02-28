@@ -1,9 +1,11 @@
 import React from 'react'
-import menu from '../../images/icons/menu.svg'
-import settingsIcon from '../../images/icons/settings.svg'
 import { connect } from 'react-redux'
-import { Container, Header, ToggleContainer, TextContainer, Title, ToggleStatus } from './Settings.styles'
+import { Container, ToggleContainer, TextContainer, Title, ToggleStatus } from './Settings.styles'
 import Switch from '@material-ui/core/Switch';
+import * as actions from '../../redux/actions/actions'
+import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
+
 
 const renderSettingsOptions = settings => (
   <ToggleContainer>
@@ -28,13 +30,10 @@ export const Settings = (props) => {
   ]
 
   return (
-    <Container>
-      <Header>
-        <img src={menu} alt="Menu"/>
-        <p>Settings</p>
-        <img src={settingsIcon} alt="Settings" /> 
-      </Header>
+    <Container visible={true}>
+      <Menu visible={props.menuVisibility} />
 
+      <Header title={'Settings'}/>
       {settings.map(settingsObj => (renderSettingsOptions(settingsObj)))}
   
     </Container>
@@ -42,11 +41,11 @@ export const Settings = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  
+  visibility: state.menu.visibleSettings, 
 })
 
-const mapDispatchToProps = {
-  
-}
+const mapDispatchToProps = (dispatch) => ({
+  changeVisibility: i => dispatch(actions.changeSettingsVisibility()),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)

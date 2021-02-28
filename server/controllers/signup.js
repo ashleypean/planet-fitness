@@ -6,11 +6,13 @@ const SQLQuery = require('../model/SQLCommands')
 
 const controller = {}
 
-controller.addNewUser = (req, res, next) => {
+controller.addNewUser = async (req, res, next) => {
   const {name, email, password} = req.body
   const user_id = uuidv4()
 
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
+  console.log('adding a new user')
+
+  await bcrypt.hash(password, 10, (err, hashedPassword) => {
     if(err) res.status(500).send(err)
 
     const user = {
@@ -19,6 +21,8 @@ controller.addNewUser = (req, res, next) => {
       email, 
       password: hashedPassword,
     }
+
+    console.log([name, user_id, email, hashedPassword])
 
     client.query(SQLQuery.addUser, [name, user_id, email, hashedPassword])
       .then( () => req.login(user, err => {
@@ -32,6 +36,8 @@ controller.addNewUser = (req, res, next) => {
 }
 
 controller.checkForExistingUser = (req, res, next) => {
+
+  console.log('checking for existing user')
   const email = req.body.email
 
   client.query(SQLQuery.checkForUser, [email])
@@ -40,7 +46,7 @@ controller.checkForExistingUser = (req, res, next) => {
       if(data.rows.length > 0) res.status(409).send('User already exists')
       else next()
     })
-    .catch(err => false)
+    .catch(err => console.log(err))
 }
 
 module.exports = controller

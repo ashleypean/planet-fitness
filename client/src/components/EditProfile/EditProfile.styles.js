@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background: #999;
+  background: #424242;
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   color: lightgray;
-  font-familY: Lato;
+  font-family: Lato;
   padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 `
 
 export const Header = styled.div`
@@ -31,6 +35,7 @@ export const Input = styled.input`
   background: none;
   height: 7%;
   color: lightgray;
+  outline: none;
 
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: lightgray;

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: #424242;
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   color: lightgray;
   font-family: Lato;

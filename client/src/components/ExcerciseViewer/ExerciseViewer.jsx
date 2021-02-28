@@ -1,17 +1,17 @@
 import React from 'react'
-import { Container, VideoPlayer, Header, WorkoutTitle, WorkoutInstructions, WorkoutDescription, WorkoutInstructionsContainer, ScheduleButton } from './ExerciseViewer.styles'
-import menu from '../../images/icons/menu.svg'
-import settings from '../../images/icons/settings.svg'
+import { connect } from 'react-redux'
+import { Container, VideoPlayer, WorkoutTitle, WorkoutInstructions, WorkoutDescription, WorkoutInstructionsContainer, ScheduleButton } from './ExerciseViewer.styles'
+import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
 
-export default function ExerciseViewer() {
+
+ const ExerciseViewer = (props) => {
   const instructions = ['Place hands on the hand bar.', 'Lift the weight while exhaling until your legs are almost straight', 'Keep back straight against the backrest', 'Reset and start again']
   return (
     <Container>
-      <Header>
-        <img src={menu} alt="Menu"/>
-        <p>Exercise</p>
-        <img src={settings} alt="Settings" />        
-      </Header>
+      <Menu visible={props.menuVisibility} />
+
+      <Header title={'Name of Workout Goes Here'} />
 
       <VideoPlayer currentTime
  controls autoPictureInPicture="true" >
@@ -34,3 +34,13 @@ export default function ExerciseViewer() {
     </Container>
   )
 }
+
+const mapStateToProps = (state) => ({
+  
+})
+
+const mapDispatchToProps = {
+  
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExerciseViewer)
