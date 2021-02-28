@@ -6,7 +6,8 @@ import Me from '../../images/me.jpeg'
 import * as actions from '../../redux/actions/actions'
 
 const Menu = (props) => {
-  const menuOptions = ['Profile', 'Workout', 'Activity', 'Goals', 'QR Scanner', 'Statistics', 'Settings', 'Sign Out']
+  const menuOptions = ['Profile', 'Schedule', 'Find A Workout', 'Goals', 'QR Scanner', 'Statistics', 'Settings', 'Sign Out']
+  const linkRoutes = ['/profile', '/workouts', '/workout/1', '/goals', '/scanner', '/stats', '/settings', '/signout' ]
   return (
     <Container visible={props.visibility}>
       <TopContainer>
@@ -18,7 +19,7 @@ const Menu = (props) => {
       <Member>Member</Member>
       <MenuList>
         {menuOptions.map((name, idx) => (
-        <Link to="/" key={idx + 'a'}>
+        <Link to={linkRoutes[idx]} key={idx} onClick={props.changeVisibility}>
          <MenuItem key={idx + 'a'}>{name}</MenuItem>
         </Link>))}
       </MenuList>
