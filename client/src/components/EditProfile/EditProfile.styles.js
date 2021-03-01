@@ -10,15 +10,19 @@ export const Container = styled.div`
   padding: 0 1rem;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-`
+  flex-direction: column;`
+Container.displayName = 'Container'
+
+
 
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: .5rem 0;
-`
+  padding: .5rem 0;`
+Header.displayName = 'Header'
+
+
 
 export const FormContainer = styled.form`
   height: 80%;
@@ -26,12 +30,17 @@ export const FormContainer = styled.form`
   flex-direction: column;
   gap: 2rem;
   color: lightgray;
-  margin: 5rem 0;
-`
+  margin: 5rem 0;`
+FormContainer.displayName = 'FormContainer'
+
+
+
 export const Label = styled.label`
   font-size: .8rem;
-  margin: 0;
-`
+  margin: 0;`
+Label.displayName = 'Label'
+
+
 
 export const Input = styled.input`
   border: none;
@@ -53,8 +62,10 @@ export const Input = styled.input`
   
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: lightgray;
-  }
-`
+  }`
+Input.displayName = 'Input'
+
+
 
 export const RegisterButton = styled.button`
   color: white;
@@ -66,5 +77,5 @@ export const RegisterButton = styled.button`
   align-self: center;
   width: 80%;
   outline: none;
-  margin: .5rem 0;
-`
+  margin: .5rem 0;`
+RegisterButton.displayName = 'RegisterButton'

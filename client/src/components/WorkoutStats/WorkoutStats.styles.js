@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
 MainContainer.displayName = 'MainContainer'
 
 
+
 export const TopContainer = styled.div`
   background: #999999;
   height: 50%;
@@ -19,6 +20,7 @@ export const TopContainer = styled.div`
 TopContainer.displayName = 'TopContainer'
 
 
+
 export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,10 +29,12 @@ export const UserInfo = styled.div`
 UserInfo.displayName = 'UserInfo'
 
 
+
 export const UserName = styled.p`
   font-size: 1.2rem;
   font-weight: 400;`
 UserName.displayName = 'UserName'
+
 
 
 export const UserStats = styled.div`
@@ -41,11 +45,13 @@ export const UserStats = styled.div`
 UserStats.displayName = 'UserStats'
 
 
+
 export const StatsCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: .3rem;`
 StatsCard.displayName = 'StatsCard'
+
 
 
 export const MainText = styled.p`
@@ -55,11 +61,13 @@ export const MainText = styled.p`
 MainText.displayName = 'MainText'
 
 
+
 export const Category = styled.p`
   font-size: .8rem;
   margin: 0;
   color: lightgrey;`
 Category.displayName = 'Category'
+
 
 
 export const DayContainer = styled.div`
@@ -71,6 +79,8 @@ export const DayContainer = styled.div`
   box-sizing: content-box;
   background: #424242`
 DayContainer.displayName = 'DayContainer'
+
+
 
 export const Day = styled.div`
   height: 4.5rem;
@@ -84,11 +94,15 @@ export const Day = styled.div`
   width: 13%;`
 Day.displayName = 'Day'
 
+
+
 export const DateText = styled.p`
   color: ${props => props.active? 'yellow' : 'lightgrey'};
   margin: 0;
   text-align: center;`
 DateText.displayName = 'DateText'
+
+
 
 export const DayText = styled.p`
   color: ${props => props.active? 'yellow' : 'lightgrey'};

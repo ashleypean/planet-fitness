@@ -9,22 +9,28 @@ export const Container = styled.div`
   margin: .3rem 0;
   gap: 1rem;
   height: 50%;
-  width: 45%;
-`
+  width: 45%;`
+Container.displayName = 'Container'
+
+
 
 export const Icon = styled.img`
   margin: 1rem 0 .5rem;
   height: 20%;
-  width: 20%;
-`
+  width: 20%;`
+Icon.displayName = 'Icon'
+
+
 
 export const CardTitle = styled.h4`
   font-weight: 400;
   font-size: 1.1rem;
-  margin: 0; 
-`
+  margin: 0; `
+CardTitle.displayName = 'CardTitle'
+
+
 
 export const Subtext = styled.p`
   margin: 0;
-  font-size: .6rem;
-`
+  font-size: .6rem;`
+Subtext.displayName = 'Subtext'

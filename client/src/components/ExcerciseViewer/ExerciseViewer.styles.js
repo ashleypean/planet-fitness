@@ -10,38 +10,51 @@ export const Container = styled.div`
   padding: 0 1rem;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-`
+  flex-direction: column;`
+Container.displayName = 'Container'
+
+
 
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: .5rem 0;
-`
+  padding: .5rem 0;`
+Header.displayName = 'Header'
+
+
 
 export const VideoPlayer = styled.video`
   dispay: block; 
-  margin: 2rem auto;
-`
+  margin: 2rem auto;`
+VideoPlayer.displayName = 'VideoPlayer'
+
+
 
 export const WorkoutTitle = styled.h1`
   font-weight: 400;
-  font-size: 1.5rem;
-`
+  font-size: 1.5rem;`
+WorkoutTitle.displayName = 'WorkoutTitle'
 
-export const WorkoutInstructionsContainer = styled.ol`
 
-`
+
+export const WorkoutInstructionsContainer = styled.ol``
+WorkoutInstructionsContainer.displayName = 'WorkoutInstructionsContainer'
+
+
 
 export const WorkoutInstructions = styled.li`
   font-size: .8rem;
-  margin: .8rem 0;
-`
+  margin: .8rem 0;`
+WorkoutInstructions.displayName = 'WorkoutInstructions'
+
+
 
 export const WorkoutDescription = styled.p`
-  font-size: .8rem;
-`
+  font-size: .8rem;`
+WorkoutDescription.displayName = 'WorkoutDescription'
+
+
 
 export const ScheduleButton = styled.button`
   color: white;
@@ -52,5 +65,5 @@ export const ScheduleButton = styled.button`
   padding: .8rem 0;
   align-self: center;
   width: 80%;
-  outline: none;
-`
+  outline: none;`
+ScheduleButton.displayName = 'ScheduleButton'

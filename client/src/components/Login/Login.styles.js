@@ -12,15 +12,19 @@ export const LoginContainer = styled.div`
   align-items: center;
   color: white;
   padding: 5rem 1.5rem; 
-  box-sizing: border-box;
-`
+  box-sizing: border-box;`
+LoginContainer.displayName = 'LoginContainer'
+
+
 
 export const Title = styled.h1`
   font-family: Arial;
   font-weight: 400;
   font-size: 2rem;
-  margin: 2rem 0 4rem;
-`
+  margin: 2rem 0 4rem;`
+Title.displayName = 'Title'
+
+
 
 export const FormContainer = styled.form`
   height: 80%;
@@ -28,14 +32,19 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
-  gap: 2rem 0;
-`
+  gap: 2rem 0;`
+FormContainer.displayName = 'FormContainer'
+
+
+
 export const LoginRegisterSwitch = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 25%;
-`
+  height: 25%;`
+LoginRegisterSwitch.displayName = 'LoginRegisterSwitch'
+
+
 
 export const Switch = styled.button`
   width: 50%;
@@ -45,8 +54,11 @@ export const Switch = styled.button`
   border: none;
   border-bottom: ${props => props.active? '1px solid #FCD900': '1px solid white' };
   font-size: 1.2rem;
-  outline: none;
-`
+  outline: none;`
+Switch.displayName = 'Switch'
+
+
+
 export const InputField = styled.input`
   border: none;
   border-bottom: 1px solid white;
@@ -67,8 +79,10 @@ export const InputField = styled.input`
   
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
-  }
-`
+  }`
+InputField.displayName = 'InputField'
+
+
 
 export const SignInButton = styled.button`
   color: white;
@@ -78,13 +92,15 @@ export const SignInButton = styled.button`
   padding: .8rem 0;
   align-self: center;
   width: 80%;
-  outline: none;
-`
+  outline: none;`
+SignInButton.displayName = 'SignInButton'
+
+
 
 export const Text = styled.a`
   align-self: center;
   font-size: .8rem;
   cursor: pointer;
-  outline: none;
-`
+  outline: none;`
+Text.displayName = 'Text'
 

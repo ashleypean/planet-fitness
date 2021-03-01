@@ -26,9 +26,7 @@ export const DateInput = styled.input`
   background: none;
   border: none;
   border-bottom: 1px solid grey;
-  outline: none;
-  
-`
+  outline: none;`
 DateInput.displayName = 'DateInput'
 
 

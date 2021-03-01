@@ -5,11 +5,13 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: .5rem 0;
-  width: 100%;
-`
+  width: 100%;`
+Container.displayName = 'Container'
+
+
 
 export const LogoImg = styled.img`
   height: 3rem;
   align-self: flex-end;
-  margin: 0 0 0 -2rem;
-`
+  margin: 0 0 0 -2rem;`
+LogoImg.displayName = 'LogoImg'
