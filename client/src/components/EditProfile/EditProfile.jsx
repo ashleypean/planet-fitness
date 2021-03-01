@@ -23,30 +23,18 @@ const EditProfile = (props) => {
   const saveChanges = (e) => {
     e.preventDefault()
     const storage = window.localStorage
-    for(const key in userInfo) {
-      storage.setItem(key.toString(), userInfo[key])
-    }
-
+    storage.setItem('profileInfo', JSON.stringify(userInfo))
   }
 
 
   
   useEffect(() => {
-    const getFromLocalStorage = async () => {
-      const storage = window.localStorage
-      const obj = {}
+    const storage = window.localStorage
     
-      if(storage.length >= 5) {
-        for(const key in userInfo) {
-          const value = storage.getItem(key.toString())
-          console.log(value)
-          obj[key] = value
-        }
-        setUserInfo(obj)
-      }
+    if(storage.getItem('profileInfo')) {
+      const userInfo = storage.getItem('profileInfo')
+      setUserInfo(userInfo)
     }
-    
-    getFromLocalStorage()
   // eslint-disable-next-line
   },[])
 

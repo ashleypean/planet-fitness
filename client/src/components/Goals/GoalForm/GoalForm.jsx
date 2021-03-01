@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import ReactDOM from 'react-dom'
-import { Container, Form } from './GoalForm.styles'
+import { Container, Form, GoalInput, GoalDescription, SubmitButton, Label } from './GoalForm.styles'
 
 
 /* new Goals object config 
@@ -18,16 +18,27 @@ import { Container, Form } from './GoalForm.styles'
 
 
 export default function GoalForm({openModal, setOpenModal}) {
+  const goalRef = useRef('')
+  const descriptionRef = useRef('')
 
   const handleSubmit = (e) => {
-
+    e.preventDefault()
+    const goal = goalRef.current.value
+    const description = descriptionRef.current.value
+    console.log(goal, description)
+    //NOTE: Need to send the data to the backend throw a redux-saga action
+    setOpenModal(false)
   }
 
   const portal = (
     ReactDOM.createPortal(
-      <Container onClick={() => setOpenModal(false)}>
+      <Container>
         <Form onSubmit={handleSubmit}>
-  
+          <Label htmlFor="">Goal</Label>
+          <GoalInput type="text" ref={goalRef}/>
+          <Label htmlFor="">Description</Label>
+          <GoalDescription ref={descriptionRef}/>
+          <SubmitButton>Add Goal</SubmitButton>
         </Form>
       </Container>, 
       document.getElementById('portal')

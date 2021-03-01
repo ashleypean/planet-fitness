@@ -24,9 +24,10 @@ export const Settings = (props) => {
 
   useEffect(() => {
     const storage = window.localStorage
-
-    const newSettings = JSON.parse(storage.getItem('settings'))
-    changeSettings(newSettings)
+    if(storage.getItem('settings')) {
+      const newSettings = JSON.parse(storage.getItem('settings'))
+      changeSettings(newSettings)
+    }
   }, [])
 
   const handleClick = (e) => {

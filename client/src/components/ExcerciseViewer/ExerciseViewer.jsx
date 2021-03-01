@@ -8,6 +8,7 @@ import ScheduleModal from './SchedulerModal/Modal'
 
  const ExerciseViewer = (props) => {
   const [openModal, setOpenModal] = useState(true)
+  // eslint-disable-next-line
   const [workoutInfo, setWorkoutInfo] = useState({
     title: 'Leg Extensions', 
     type: 'resistance'

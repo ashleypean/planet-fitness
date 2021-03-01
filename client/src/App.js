@@ -57,12 +57,14 @@ const AppRoutes = (
     </Route>
     <Route exact path="/profile" component={ViewProfile} />
     <Route exact path="/edit-profile" component={EditProfile} />
-    <Route exact path="/workouts" component={Schedule} />
-    <Route exact path="/workout/:id" component={ExerciseViewer} />
+    <Route exact path="/exercise/view/:id" component={ExerciseViewer} />
     <Route exact path="/schedule" component={Schedule} />
     <Route exact path="/goals" component={Goals} />
     <Route exact path="/stats" component={WorkoutStats} />
     <Route exact path="/settings" component={Settings} />
+    <Route exact path="/workouts" > 
+      <Redirect to="/schedule" />
+    </Route>
     <Route exact path="/404" component={NotFound} />
     <Route path="*">
       <Redirect to="/404" />

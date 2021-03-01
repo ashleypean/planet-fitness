@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { Container, DateInput, AddButton } from './Modal.styles'
-import moment from 'moment'
 
 const Modal = (props) => {
   const { openModal, setOpenModal, workoutInfo } = props
@@ -14,6 +13,7 @@ const Modal = (props) => {
   }
 
   const handleSubmit = (e) => {
+    console.log(selectedDate, workoutInfo)
     //NOTE: Add functionality to send the data back to the Redux store and store it in the database
     setOpenModal(false)
   }
@@ -30,8 +30,3 @@ const Modal = (props) => {
 }
 
 export default Modal
-
-
-{/* <MuiPickersUtilsProvider utils={MomentUtils}>
-<DateTimePicker onChange={handleDate} formatDate={handleDate} showTodayButton={true} value={selectedDate} format='ddd ll HH:MM A' inputValue={inputValue}/>
-</MuiPickersUtilsProvider> */}

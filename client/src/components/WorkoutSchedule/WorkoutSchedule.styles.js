@@ -8,15 +8,19 @@ export const Container = styled.div`
   color: lightgray;
   font-family: Lato;
   padding: 0 1rem;
-  box-sizing: border-box;
-`
+  box-sizing: border-box;`
+Container.displayName = 'Container'
+
+
 
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: .5rem 0;
-`
+  padding: .5rem 0;`
+Header.displayName = 'Header'
+
+
 
 export const DayContainer = styled.div`
   width: 100%;
@@ -24,14 +28,36 @@ export const DayContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  box-sizing: content-box;
-`
+  box-sizing: content-box;`
+DayContainer.displayName = 'DayContainer'
+
+
 
 export const Day = styled.p`
   color: ${props => props.active ? 'yellow': 'lightgrey'};
   border-bottom: ${props => props.active ? '1px solid yellow': '1px solid lightgrey'};
-  padding: 0 .7rem 1.5rem .7rem;
-`
+  padding: 0 .7rem 1.5rem .7rem;`
+Day.displayName = 'Day'
+
+
+
+export const AddWorkoutContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;`
+AddWorkoutContainer.displayName = 'AddWorkoutContainer'
+
+
+
+export const AddWorkoutButton = styled.button`
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  outline: none;`
+AddWorkoutButton.displayName = 'AddWorkoutButton'
+
+
 
 export const WorkoutContainer = styled.div`
   width: 100%;
@@ -40,8 +66,10 @@ export const WorkoutContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 0;
-  border-bottom: 1px solid #CCCCCC;
-`
+  border-bottom: 1px solid #CCCCCC;`
+WorkoutContainer.displayName = 'WorkoutContainer'
+
+
 
 export const CheckBox = styled.button`
   border-radius: 0%;
@@ -51,8 +79,10 @@ export const CheckBox = styled.button`
   background: none;
   font-size: .6rem;
   align-self: center;
-  outline: none;
-`
+  outline: none;`
+CheckBox.displayName = 'CheckBox'
+
+
 
 export const WorkoutDetails = styled.div`
   display: inline-flex;
@@ -62,22 +92,28 @@ export const WorkoutDetails = styled.div`
   height: 100%;
   margin: 0;
   padding: 0 .5rem;
-  gap: .4rem;
-`
+  gap: .4rem;`
+WorkoutDetails.displayName = 'WorkoutDetails'
+
+
 
 export const WorkoutName = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: 1rem;
-  padding: 0 .3rem;
-`
+  padding: 0 .3rem;`
+WorkoutName.displayName = 'WorkoutName'
+
+
 
 export const WorkoutTime = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: .6rem;
-  padding: 0 .3rem;
-`
+  padding: 0 .3rem;`
+WorkoutTime.displayName = 'WorkoutTime'
+
+
 
 export const ViewButton = styled.button`
   color: white; 
@@ -88,5 +124,5 @@ export const ViewButton = styled.button`
   font-size: .6rem;
   height: 1.2rem;
   padding: 0 .6rem;
-  outline: none;
-`
+  outline: none;`
+ViewButton.displayName = 'ViewButton'

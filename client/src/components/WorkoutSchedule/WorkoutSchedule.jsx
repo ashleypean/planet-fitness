@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Container, DayContainer, Day, WorkoutContainer, CheckBox, WorkoutDetails, ViewButton, WorkoutTime, WorkoutName } from './WorkoutSchedule.styles'
+import { Container, DayContainer, Day, WorkoutContainer, CheckBox, WorkoutDetails, ViewButton, WorkoutTime, WorkoutName, AddWorkoutContainer, AddWorkoutButton } from './WorkoutSchedule.styles'
 import Header from '../Header/Header'
 import Menu from '../Menu/Menu'
+import AddWorkoutModal from './AddWorkoutModal/AddWorkout'
 
 export const WorkoutSchedule = (props) => {
   const [schedule, setSchedule] = useState(data)
   const [selectedDate, setSelectedDate] = useState(0)
+  const [showModal, setShowModal] = useState(true)
 
   const resetSchedule =  (e) => {
     const idx = Number(e.target.id)
@@ -24,7 +26,7 @@ export const WorkoutSchedule = (props) => {
   return (
     <Container>
       <Menu />
-
+      <AddWorkoutModal showModal={showModal} setShowModal={setShowModal}/>
       <Header title={'Schedule'}/>
 
       <DayContainer>
@@ -35,6 +37,9 @@ export const WorkoutSchedule = (props) => {
         ))}
       </DayContainer>
 
+      <AddWorkoutContainer>
+        <AddWorkoutButton onClick={() => setShowModal(true)}>+</AddWorkoutButton>
+      </AddWorkoutContainer>
 
       {schedule.map((workout, idx) => workout.day === selectedDate? (
         <WorkoutContainer key={idx + 'a'}>

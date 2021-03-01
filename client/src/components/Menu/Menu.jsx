@@ -7,7 +7,6 @@ import Me from '../../images/me.jpeg'
 import * as actions from '../../redux/actions/actions'
 
 const Menu = (props) => {
-  console.log('menu props: ', props)
 
   const menuOptions = ['Profile', 'Schedule', 'Find A Workout', 'Goals', 'QR Scanner', 'Statistics', 'Settings', 'Sign Out']
   const linkRoutes = ['/profile', '/workouts', '/workout/1', '/goals', '/scanner', '/stats', '/settings', '/signout' ]
