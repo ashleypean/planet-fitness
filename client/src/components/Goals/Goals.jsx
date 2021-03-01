@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Container, GoalsAchieved, GoalsAchievedSub, Date, EntryContainer, EntryText, DateEntry, DescriptionContainer, EntrySubtext, Data } from './Goals.styles'
+import { Container, GoalsAchieved, GoalsAchievedSub, Date, EntryContainer, EntryText, DateEntry, DescriptionContainer, EntrySubtext, Data, Checkbox, AddNewGoal } from './Goals.styles'
 import { Doughnut } from '@reactchartjs/react-chart.js'
 import Header from '../Header/Header'
 import Menu from '../Menu/Menu'
+import GoalForm from './GoalForm/GoalForm'
+
+//phsyical, mental, emotional 
 
 
 export const Goals = (props) => {
+  const [goals, setGoals] = useState(goalsData)
+  const [openModal, setOpenModal] = useState(false)
 
-  const goals =  [{
-    date: 'Fri, Dec 23rd', 
-    list: [{title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20, time: null}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20, time: null}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20,  time: null}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20,  time: null}]
-  }, 
-  {
-    date: 'Fri, Dec 24th', 
-    list: [{title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20}, {title: 'Leg Extensions', type: 'resistance', sets: 2, reps: 20}]
-  }, 
-  ]
+
+  const handleChange = (e, props) => {
+    console.log('click')
+    const indexes = e.target.id.split(' ')
+    const dayIdx = Number(indexes[0])
+    const listIdx = Number(indexes[1])
+
+    const newGoals = goals
+    newGoals[dayIdx].list[listIdx].completed = !newGoals[dayIdx].list[listIdx].completed 
+
+    setGoals(newGoals)
+  }
+
+  const renderGoals = (list, dayIdx, listIdx) => (
+    <EntryContainer key={listIdx + 'a'}>
+      <Checkbox id={dayIdx + ' ' + listIdx} type="checkbox" onChange={handleChange}/>
+      <DescriptionContainer>
+        <EntryText>{list.title}</EntryText>
+        <Data>{list.time ?? `Sets: ${list.sets} Reps: ${list.reps}`}</Data>
+        <EntrySubtext>{'TYPE: ' + list.type.toUpperCase()}</EntrySubtext>
+      </DescriptionContainer>
+      
+  
+    </EntryContainer>
+  )
 
   return (
     <Container>
-      <Menu visible={props.menuVisibility} />
+      <GoalForm openModal={openModal} setOpenModal={setOpenModal}/>
+      <Menu  />
 
       <Header title={'Goals'}/>
 
@@ -29,15 +51,19 @@ export const Goals = (props) => {
 
      <Doughnut data={data} options={options}/>
 
-      {goals.map(day => (
-        <DateEntry>
-          <Date>{day.date}</Date>
-          {day.list.map(day => renderGoals(day))}
+    <AddNewGoal onClick={() => setOpenModal(true)}>Add A New Goal</AddNewGoal>
+
+      {goals.map((day, dayIdx) => (
+        <DateEntry key={dayIdx + 'a'}>
+          <Date >{day.date}</Date>
+          {day.list.map((day, listIdx) => renderGoals(day, dayIdx, listIdx))}
         </DateEntry>
       ))}
 
     </Container>
   )
+
+
 }
 
 const mapStateToProps = (state) => ({
@@ -48,16 +74,85 @@ const mapDispatchToProps = {
   
 }
 
-const renderGoals = (list) => (
-  <EntryContainer>
-    <DescriptionContainer>
-      <EntryText>{list.title}</EntryText>
-      <EntrySubtext>{list.type.toUpperCase()}</EntrySubtext>
-    </DescriptionContainer>
-    
-    <Data>{list.time ?? `Sets: ${list.sets} Reps: ${list.reps}`}</Data>
-  </EntryContainer>
-)
+/* new Goals object config 
+  - array of objects 
+  {
+    title: title of goal
+    descriptions: longer description of goal 
+    landmarks/updates: array of updates about goal progress
+    completed: show completed/notcompleted status
+    goal_added: Date showing when the goal was created
+    goal_completed: Date showing when the goal was achieved 
+  }
+*/
+
+const goalsData =  [{
+  date: 'Fri, Dec 23rd', 
+  list: [
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    }, 
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },    
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },    
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },]
+}, 
+{
+  date: 'Fri, Dec 24th', 
+  list: [
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },    
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },    
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },    
+    {
+      title: 'Leg Extensions', 
+      type: 'resistance', 
+      sets: 2, 
+      reps: 20, 
+      time: null, 
+    },
+  ]
+}, 
+]
+
 
 const options = {
   legend: {

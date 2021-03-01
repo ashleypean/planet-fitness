@@ -16,6 +16,7 @@ export const UserDiv = styled.div`
   flex-direction: row;
   height: 15%;
   width: 100%;
+  margin: .8rem 0 1.2rem;
 `
 
 export const UserDivImage = styled.img`
@@ -31,10 +32,12 @@ export const DivText = styled.div`
   width: 66%;
   padding: 0 0 0 2rem;
   justify-content: space-evenly;
+  align-items: center;
+  gap: .6rem;
 `
 
 export const Username = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin: 0;
 `
 
@@ -55,7 +58,7 @@ export const Citation = styled.cite`
 `
 
 export const CardContainer = styled.div`
-  height: 55%;
+  height: 60%;
   display: flex;
   flex-basis: 50%;
   flex-flow: row wrap;

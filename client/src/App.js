@@ -16,14 +16,16 @@ import './index.css'
 import * as actions from './redux/actions/actions'
 
 
-const App = props => {
+const App = ({isAuthenticated, changeAuthStatus}) => {
 
   useEffect(() => {
     axios.get('/login')
       .then(response => {
-        props.changeAuthStatus(true)
+        changeAuthStatus(true)
       })
-  }, [])
+      .catch( err => console.log(err))
+  // eslint-disable-next-line
+  }, [isAuthenticated])
 
   return(<Router>
     <div className="App">
@@ -61,7 +63,10 @@ const AppRoutes = (
     <Route exact path="/goals" component={Goals} />
     <Route exact path="/stats" component={WorkoutStats} />
     <Route exact path="/settings" component={Settings} />
-    <Route component={NotFound} />
+    <Route exact path="/404" component={NotFound} />
+    <Route path="*">
+      <Redirect to="/404" />
+    </Route>
   </Switch>
 )
 

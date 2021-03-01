@@ -28,7 +28,8 @@ export const DayContainer = styled.div`
 `
 
 export const Day = styled.p`
-  border-bottom: 1px solid lightgrey;
+  color: ${props => props.active ? 'yellow': 'lightgrey'};
+  border-bottom: ${props => props.active ? '1px solid yellow': '1px solid lightgrey'};
   padding: 0 .7rem 1.5rem .7rem;
 `
 
@@ -43,10 +44,10 @@ export const WorkoutContainer = styled.div`
 `
 
 export const CheckBox = styled.button`
-  border-radius: 50%;
+  border-radius: 0%;
   height: 1rem;
-  color: #783AAA;
-  border: 1px solid #783AAA;
+  color: ${props => props.checked? '#783AAA': 'white'};
+  border:  ${props => props.checked? '2px solid #783AAA': '2px solid white'};
   background: none;
   font-size: .6rem;
   align-self: center;

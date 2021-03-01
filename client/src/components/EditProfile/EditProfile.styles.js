@@ -20,12 +20,17 @@ export const Header = styled.div`
   padding: .5rem 0;
 `
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   height: 80%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   color: lightgray;
+  margin: 5rem 0;
+`
+export const Label = styled.label`
+  font-size: .8rem;
+  margin: 0;
 `
 
 export const Input = styled.input`
@@ -61,5 +66,5 @@ export const RegisterButton = styled.button`
   align-self: center;
   width: 80%;
   outline: none;
-  margin: 1rem 0;
+  margin: .5rem 0;
 `

@@ -10,6 +10,7 @@ import Gear from '../../images/icons/gear.svg'
 import Menu from '../Menu/Menu'
 
 export const ViewProfile = (props) => {
+
   const cards = [
     {title: 'Goals', text: '67% Achieved', icon: Trophy},
     {title: 'Workout List', text: 'Get Started', icon: Rocket}, 
@@ -17,10 +18,9 @@ export const ViewProfile = (props) => {
     {title: 'Settings', text: 'Change Settings', icon: Gear} 
   ]
 
-
   return (
     <Container>
-      <Menu visible={props.menuVisibility} />
+      <Menu />
       <Header title={'Profile'}/>
 
       <UserDiv>
@@ -39,7 +39,12 @@ export const ViewProfile = (props) => {
 
       <CardContainer>
         {cards.map( (card, idx) => (
-          <ProfileCard title={card.title} text={card.text} icon={card.icon} key={idx}/>
+          <ProfileCard 
+          idx={idx}
+          title={card.title} 
+          text={card.text} icon={card.icon} 
+          key={idx + 'a'}/>
+          
         ))}
       </CardContainer>
 

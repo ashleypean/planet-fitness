@@ -1,15 +1,18 @@
 import React from 'react'
+import Header from '../Header/Header'
 import Menu from '../Menu/Menu'
 import { connect } from 'react-redux'
+import { Container, Title, Subtitle, BackHome } from './NotFound.styles'
 
 const NotFound = (props) => {
   return (
-    <div>
-      <Menu visible={props.menuVisibility} />
+    <Container>
+      <Header />
+      <Menu />
 
-      <h1>Uh Oh! That route does not exist!</h1>
-      <p>Please try navigating back to the <a href="/">home page</a>. </p>
-    </div>
+      <Title>Uh Oh! That route does not exist!</Title>
+      <Subtitle>Please try navigating back to your <BackHome to="/">home page</BackHome>. </Subtitle>
+    </Container>
   )
 }
 

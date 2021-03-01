@@ -9,11 +9,6 @@ export const Container = styled.div`
   font-family: Lato;
   padding: 0 1rem;
   box-sizing: border-box;
-  position: fixed;
-  left: 0;
-  top: 0;
-  visibility: ${props => props.visible? 'visible' : 'hidden'};
-  z-index: ${props => props.visible? 2 : -1};
 `
 
 export const Header = styled.div`

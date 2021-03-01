@@ -4,11 +4,11 @@ export const Container = styled.div`
   background: #333333;
   display: flex;
   flex-direction: column;
-  padding: .5rem 0 0rem 1.3rem;
+  padding: .5rem 0 1.2rem 1.3rem;
   box-sizing: border-box;
   margin: .3rem 0;
   gap: 1rem;
-  height: 45%;
+  height: 50%;
   width: 45%;
 `
 

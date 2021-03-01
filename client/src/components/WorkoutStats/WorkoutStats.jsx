@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import LineChart from './Chart/Chart'
 import {  TopContainer, UserInfo, UserName, UserStats, StatsCard, MainText, Category, DayContainer, Day, MainContainer, DayText, DateText } from './WorkoutStats.styles'
@@ -9,18 +9,19 @@ export const WorkoutStats = (props) => {
   const stats = [{title: 'Time', stat: '01:59'}, {title: 'Total Reps', stat: '154'}, {title: 'Calories', stat: '634'}]
 
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const [activeDay, setActiveDay] = useState(0)
 
   return (
     <MainContainer>
-      <Menu visible={props.menuVisibility} />
+      <Menu />
       <TopContainer>
         <Header title={'Stats'}/>
 
         <UserInfo>
           <UserName>Ashley Pean</UserName>
           <UserStats>
-            {stats.map(stat => (
-              <StatsCard>
+            {stats.map((stat, idx) => (
+              <StatsCard key={idx + 'a'}>
                 <MainText>{stat.stat}</MainText>
                 <Category>{stat.title}</Category>
               </StatsCard>
@@ -30,10 +31,10 @@ export const WorkoutStats = (props) => {
       </TopContainer>
 
       <DayContainer>
-          {days.map(day => (
-            <Day>
-              <DateText>{day}</DateText>
-              <DayText>{24}</DayText>
+          {days.map((day, idx) => (
+            <Day key={idx + 'a'} active={idx === activeDay} onClick={() => setActiveDay(idx)}>
+              <DateText active={idx === activeDay}>{day}</DateText>
+              <DayText active={idx === activeDay}>{24}</DayText>
             </Day>
           ))}
       </DayContainer>

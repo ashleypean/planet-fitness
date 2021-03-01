@@ -47,19 +47,21 @@ export const EntryContainer = styled.div`
   background: #333333;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   margin: 1rem 0;
-  padding: .3rem 0 1.2rem;
+  padding: 1rem 1rem 1.2rem;
 `
 
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
+  gap: .5rem;
 `
 
 export const EntryText = styled.p`
   color: white;
   font-size: 1rem;
+  margin: 0;
 `
 
 export const EntrySubtext = styled.p`
@@ -70,8 +72,33 @@ export const EntrySubtext = styled.p`
 
 export const Data = styled.p`
   color: white;
-  font-size: 1rem;
-  align-self: flex-end;
+  font-size: .8rem;
+  margin: 0;
 `
 
+export const AddNewGoal = styled.p`
+  color: white;
+  font-size: .8rem;
+  text-align: center;
+  border: none;
+  background: #56297B;
+  border-radius: 4px;
+  width: 40%;
+  padding: 1rem 2rem;
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+`
 
+export const Checkbox = styled.input`
+  border: none;
+  background: ${props => props.type === 'completed'? 'yellow': 'gray'};
+  color: white;
+  align-self: center;
+  margin-top: 1rem;
+
+`
+
+export const Delete = styled.button`
+
+`
